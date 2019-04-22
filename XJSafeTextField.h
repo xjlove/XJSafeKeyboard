@@ -10,7 +10,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class XJSafeTextField;
+@protocol XJSafeTextFieldDelegate <NSObject>
+
+@optional
+- (void)textFiledDoneActon:(XJSafeTextField*)textField;
+
+@end
+
 @interface XJSafeTextField : UITextField
+
+@property (nonatomic, assign) id<XJSafeTextFieldDelegate> safeDelegate;
 
 - (instancetype)init;
 - (instancetype)initWithFrame:(CGRect)frame;

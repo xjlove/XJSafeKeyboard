@@ -91,6 +91,7 @@
     
     [self.passWord appendString:button.currentTitle];
     self.text = self.passWord;
+    
     NSLog(@"%@", self.text);
 }
 
@@ -106,6 +107,10 @@
 - (void)keyboard:(XJKeyboardView *)keyboard didClickReturnBtn:(UIButton *)returnBtn
 {
     [self resignFirstResponder];
+    
+    if ([self.safeDelegate respondsToSelector:@selector(textFiledDoneActon:)]) {
+        [self.safeDelegate textFiledDoneActon:self];
+    }
     NSLog(@"return 确认");
 }
 #pragma mark - 需要
